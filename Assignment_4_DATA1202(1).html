@@ -1,0 +1,1484 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head></head><body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    
+    
+    
+    
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Import Python Libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># define variables for the csv files, this step is not mandatory </span>
+<span class="c1">#but it will help to understand the importing data step in Python</span>
+
+<span class="n">File_1</span> <span class="o">=</span> <span class="s2">&quot;youtube_dataset.csv&quot;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Read the csv file </span>
+<span class="n">raw_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">File_1</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">raw_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>web-scraper-order</th>
+      <th>web-scraper-start-url</th>
+      <th>userID</th>
+      <th>userID-href</th>
+      <th>name</th>
+      <th>uploads</th>
+      <th>subscribers</th>
+      <th>videoviews</th>
+      <th>country</th>
+      <th>channeltype</th>
+      <th>usercreated</th>
+      <th>grade</th>
+      <th>YouTube_Link</th>
+      <th>YouTube_Link-href</th>
+      <th>TwitterHandle</th>
+      <th>TwitterHandle-href</th>
+      <th>InstagramHandle</th>
+      <th>InstagramHandle-href</th>
+      <th>MonthlyEarnings</th>
+      <th>YearlyEarnings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1553043067-5148</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>PewDiePie</td>
+      <td>https://socialblade.com/youtube/c/pewdiepie</td>
+      <td>PewDiePie</td>
+      <td>3779</td>
+      <td>90210848</td>
+      <td>20772365682</td>
+      <td>US</td>
+      <td>Entertainment</td>
+      <td>Apr 29th, 2010</td>
+      <td>A</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UC-lHJZR3Gqxm24_Vd...</td>
+      <td>NaN</td>
+      <td>https://twitter.com/pewdiepie</td>
+      <td>NaN</td>
+      <td>https://instagram.com/pewdiepie</td>
+      <td>€66.9K - €1.1M</td>
+      <td>€802.3K - €12.8M</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1553043063-5147</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>T-Series</td>
+      <td>https://socialblade.com/youtube/c/tseriesmusic</td>
+      <td>T-Series</td>
+      <td>13218</td>
+      <td>90194329</td>
+      <td>65092058996</td>
+      <td>IN</td>
+      <td>Music</td>
+      <td>Mar 13th, 2006</td>
+      <td>A++</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCq-Fj5jknLsUf-MWS...</td>
+      <td>NaN</td>
+      <td>https://instagram.com/tseries.official</td>
+      <td>NaN</td>
+      <td>https://plus.google.com/115156822320080163368</td>
+      <td>€635.6K - €10.2M</td>
+      <td>€7.6M - €122M</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1553043059-5146</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>Gaming</td>
+      <td>https://socialblade.com/youtube/channel/UCOpNc...</td>
+      <td>Gaming</td>
+      <td>0</td>
+      <td>81888222</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>Games</td>
+      <td>Dec 15th, 2013</td>
+      <td>D-</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCOpNcN46UbXVtpKMr...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCOpNcN46UbXVtpKMr...</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1553043055-5145</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>YouTube Movies</td>
+      <td>https://socialblade.com/youtube/channel/UClgRk...</td>
+      <td>YouTube Movies</td>
+      <td>0</td>
+      <td>77413743</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>Film</td>
+      <td>Jun 10th, 2015</td>
+      <td>D-</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UClgRkhTL3_hImCAmd...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UClgRkhTL3_hImCAmd...</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1553043051-5144</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>Sports</td>
+      <td>https://socialblade.com/youtube/channel/UCEgdi...</td>
+      <td>Sports</td>
+      <td>0</td>
+      <td>75622870</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>Sports</td>
+      <td>Dec 15th, 2013</td>
+      <td>D-</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCEgdi0XIXXZ-qJOFP...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCEgdi0XIXXZ-qJOFP...</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># selecting only important columns from the original dataframe</span>
+<span class="n">subset_raw_df</span><span class="o">=</span><span class="n">raw_df</span><span class="p">[[</span><span class="s1">&#39;userID&#39;</span><span class="p">,</span><span class="s1">&#39;subscribers&#39;</span><span class="p">,</span><span class="s1">&#39;videoviews&#39;</span><span class="p">,</span><span class="s1">&#39;channeltype&#39;</span><span class="p">,</span><span class="s1">&#39;grade&#39;</span><span class="p">,</span><span class="s1">&#39;MonthlyEarnings&#39;</span><span class="p">,</span><span class="s1">&#39;YearlyEarnings&#39;</span><span class="p">]]</span>
+<span class="n">subset_raw_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>subscribers</th>
+      <th>videoviews</th>
+      <th>channeltype</th>
+      <th>grade</th>
+      <th>MonthlyEarnings</th>
+      <th>YearlyEarnings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PewDiePie</td>
+      <td>90210848</td>
+      <td>20772365682</td>
+      <td>Entertainment</td>
+      <td>A</td>
+      <td>€66.9K - €1.1M</td>
+      <td>€802.3K - €12.8M</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>T-Series</td>
+      <td>90194329</td>
+      <td>65092058996</td>
+      <td>Music</td>
+      <td>A++</td>
+      <td>€635.6K - €10.2M</td>
+      <td>€7.6M - €122M</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Gaming</td>
+      <td>81888222</td>
+      <td>0</td>
+      <td>Games</td>
+      <td>D-</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>YouTube Movies</td>
+      <td>77413743</td>
+      <td>0</td>
+      <td>Film</td>
+      <td>D-</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Sports</td>
+      <td>75622870</td>
+      <td>0</td>
+      <td>Sports</td>
+      <td>D-</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Sorting the data frame by videoviews to create a new data frame</span>
+<span class="n">subset_raw_df_sorted</span> <span class="o">=</span> <span class="n">subset_raw_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;videoviews&#39;</span><span class="p">,</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">subset_raw_df_sorted</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4000</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>subscribers</th>
+      <th>videoviews</th>
+      <th>channeltype</th>
+      <th>grade</th>
+      <th>MonthlyEarnings</th>
+      <th>YearlyEarnings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>T-Series</td>
+      <td>90194329</td>
+      <td>65092058996</td>
+      <td>Music</td>
+      <td>A++</td>
+      <td>€635.6K - €10.2M</td>
+      <td>€7.6M - €122M</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>SET India</td>
+      <td>43974122</td>
+      <td>30601562478</td>
+      <td>Entertainment</td>
+      <td>A++</td>
+      <td>€318.3K - €5.1M</td>
+      <td>€3.8M - €61.1M</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>Ryan ToysReview</td>
+      <td>18664546</td>
+      <td>28167288987</td>
+      <td>Entertainment</td>
+      <td>A+</td>
+      <td>€140.2K - €2.2M</td>
+      <td>€1.7M - €26.9M</td>
+    </tr>
+    <tr>
+      <th>158</th>
+      <td>netd m&#252;zik</td>
+      <td>13295102</td>
+      <td>28026880244</td>
+      <td>Music</td>
+      <td>A++</td>
+      <td>€123.5K - €2M</td>
+      <td>€1.5M - €23.7M</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Canal KondZilla</td>
+      <td>47785398</td>
+      <td>23658901687</td>
+      <td>Music</td>
+      <td>A+</td>
+      <td>€120.4K - €1.9M</td>
+      <td>€1.4M - €23.1M</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>687</th>
+      <td>Guns N&#39; Roses</td>
+      <td>5880065</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>D-</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+    <tr>
+      <th>2280</th>
+      <td>Popular on YouTube - France</td>
+      <td>2803490</td>
+      <td>0</td>
+      <td>Games</td>
+      <td>D-</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+    <tr>
+      <th>1458</th>
+      <td>Yaroslava &amp; Playground</td>
+      <td>3684159</td>
+      <td>0</td>
+      <td>People</td>
+      <td>D-</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+    <tr>
+      <th>2138</th>
+      <td>Popular on YouTube - Mexico</td>
+      <td>2921085</td>
+      <td>0</td>
+      <td>Games</td>
+      <td>D-</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+    <tr>
+      <th>3943</th>
+      <td>Druzhko Show</td>
+      <td>12</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>D-</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+  </tbody>
+</table>
+<p>3944 rows &#215; 7 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#to select only the required data</span>
+<span class="n">df_filtered</span> <span class="o">=</span> <span class="n">subset_raw_df_sorted</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">1000</span><span class="p">,:]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># To see what the data set looks like, we&#39;ll use the head() method.</span>
+<span class="n">df_filtered</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>subscribers</th>
+      <th>videoviews</th>
+      <th>channeltype</th>
+      <th>grade</th>
+      <th>MonthlyEarnings</th>
+      <th>YearlyEarnings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>T-Series</td>
+      <td>90194329</td>
+      <td>65092058996</td>
+      <td>Music</td>
+      <td>A++</td>
+      <td>€635.6K - €10.2M</td>
+      <td>€7.6M - €122M</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>SET India</td>
+      <td>43974122</td>
+      <td>30601562478</td>
+      <td>Entertainment</td>
+      <td>A++</td>
+      <td>€318.3K - €5.1M</td>
+      <td>€3.8M - €61.1M</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>Ryan ToysReview</td>
+      <td>18664546</td>
+      <td>28167288987</td>
+      <td>Entertainment</td>
+      <td>A+</td>
+      <td>€140.2K - €2.2M</td>
+      <td>€1.7M - €26.9M</td>
+    </tr>
+    <tr>
+      <th>158</th>
+      <td>netd m&#252;zik</td>
+      <td>13295102</td>
+      <td>28026880244</td>
+      <td>Music</td>
+      <td>A++</td>
+      <td>€123.5K - €2M</td>
+      <td>€1.5M - €23.7M</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Canal KondZilla</td>
+      <td>47785398</td>
+      <td>23658901687</td>
+      <td>Music</td>
+      <td>A+</td>
+      <td>€120.4K - €1.9M</td>
+      <td>€1.4M - €23.1M</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>625</th>
+      <td>Jkk Entertainment</td>
+      <td>6265578</td>
+      <td>1360697450</td>
+      <td>Comedy</td>
+      <td>A</td>
+      <td>€48K - €768.6K</td>
+      <td>€576.5K - €9.2M</td>
+    </tr>
+    <tr>
+      <th>1164</th>
+      <td>Life with Brothers</td>
+      <td>4276816</td>
+      <td>1359180632</td>
+      <td>Entertainment</td>
+      <td>A-</td>
+      <td>€16.4K - €263.1K</td>
+      <td>€197.3K - €3.2M</td>
+    </tr>
+    <tr>
+      <th>2868</th>
+      <td>T-Series Telugu</td>
+      <td>2412290</td>
+      <td>1355892656</td>
+      <td>Music</td>
+      <td>A-</td>
+      <td>€12.6K - €201K</td>
+      <td>€150.7K - €2.4M</td>
+    </tr>
+    <tr>
+      <th>2553</th>
+      <td>Sumeet Music</td>
+      <td>2593577</td>
+      <td>1355279887</td>
+      <td>Entertainment</td>
+      <td>A-</td>
+      <td>€14.9K - €238.2K</td>
+      <td>€178.6K - €2.9M</td>
+    </tr>
+    <tr>
+      <th>1092</th>
+      <td>The X Factor USA</td>
+      <td>4442573</td>
+      <td>1353881692</td>
+      <td>Entertainment</td>
+      <td>B</td>
+      <td>€1.6K - €25K</td>
+      <td>€18.7K - €299.7K</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows &#215; 7 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#saving the sorted dataframe to a new csv file</span>
+<span class="n">df_filtered</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;youtube_sorted_Final.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_filtered</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>subscribers</th>
+      <th>videoviews</th>
+      <th>channeltype</th>
+      <th>grade</th>
+      <th>MonthlyEarnings</th>
+      <th>YearlyEarnings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>T-Series</td>
+      <td>90194329</td>
+      <td>65092058996</td>
+      <td>Music</td>
+      <td>A++</td>
+      <td>€635.6K - €10.2M</td>
+      <td>€7.6M - €122M</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>SET India</td>
+      <td>43974122</td>
+      <td>30601562478</td>
+      <td>Entertainment</td>
+      <td>A++</td>
+      <td>€318.3K - €5.1M</td>
+      <td>€3.8M - €61.1M</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>Ryan ToysReview</td>
+      <td>18664546</td>
+      <td>28167288987</td>
+      <td>Entertainment</td>
+      <td>A+</td>
+      <td>€140.2K - €2.2M</td>
+      <td>€1.7M - €26.9M</td>
+    </tr>
+    <tr>
+      <th>158</th>
+      <td>netd m&#252;zik</td>
+      <td>13295102</td>
+      <td>28026880244</td>
+      <td>Music</td>
+      <td>A++</td>
+      <td>€123.5K - €2M</td>
+      <td>€1.5M - €23.7M</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Canal KondZilla</td>
+      <td>47785398</td>
+      <td>23658901687</td>
+      <td>Music</td>
+      <td>A+</td>
+      <td>€120.4K - €1.9M</td>
+      <td>€1.4M - €23.1M</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Read the csv file </span>
+<span class="n">F3</span> <span class="o">=</span> <span class="s2">&quot;youtube_sorted_Final.csv&quot;</span>
+<span class="n">raw_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">F3</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">raw_dataframe</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>subscribers</th>
+      <th>videoviews</th>
+      <th>channeltype</th>
+      <th>grade</th>
+      <th>MonthlyEarnings</th>
+      <th>YearlyEarnings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>T-Series</td>
+      <td>90194329</td>
+      <td>65092058996</td>
+      <td>Music</td>
+      <td>A++</td>
+      <td>€635.6K - €10.2M</td>
+      <td>€7.6M - €122M</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>SET India</td>
+      <td>43974122</td>
+      <td>30601562478</td>
+      <td>Entertainment</td>
+      <td>A++</td>
+      <td>€318.3K - €5.1M</td>
+      <td>€3.8M - €61.1M</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ryan ToysReview</td>
+      <td>18664546</td>
+      <td>28167288987</td>
+      <td>Entertainment</td>
+      <td>A+</td>
+      <td>€140.2K - €2.2M</td>
+      <td>€1.7M - €26.9M</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>netd m&#252;zik</td>
+      <td>13295102</td>
+      <td>28026880244</td>
+      <td>Music</td>
+      <td>A++</td>
+      <td>€123.5K - €2M</td>
+      <td>€1.5M - €23.7M</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Canal KondZilla</td>
+      <td>47785398</td>
+      <td>23658901687</td>
+      <td>Music</td>
+      <td>A+</td>
+      <td>€120.4K - €1.9M</td>
+      <td>€1.4M - €23.1M</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">raw_dataframe</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>subscribers</th>
+      <th>videoviews</th>
+      <th>channeltype</th>
+      <th>grade</th>
+      <th>MonthlyEarnings</th>
+      <th>YearlyEarnings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>995</th>
+      <td>Jkk Entertainment</td>
+      <td>6265578</td>
+      <td>1360697450</td>
+      <td>Comedy</td>
+      <td>A</td>
+      <td>€48K - €768.6K</td>
+      <td>€576.5K - €9.2M</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>Life with Brothers</td>
+      <td>4276816</td>
+      <td>1359180632</td>
+      <td>Entertainment</td>
+      <td>A-</td>
+      <td>€16.4K - €263.1K</td>
+      <td>€197.3K - €3.2M</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>T-Series Telugu</td>
+      <td>2412290</td>
+      <td>1355892656</td>
+      <td>Music</td>
+      <td>A-</td>
+      <td>€12.6K - €201K</td>
+      <td>€150.7K - €2.4M</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>Sumeet Music</td>
+      <td>2593577</td>
+      <td>1355279887</td>
+      <td>Entertainment</td>
+      <td>A-</td>
+      <td>€14.9K - €238.2K</td>
+      <td>€178.6K - €2.9M</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>The X Factor USA</td>
+      <td>4442573</td>
+      <td>1353881692</td>
+      <td>Entertainment</td>
+      <td>B</td>
+      <td>€1.6K - €25K</td>
+      <td>€18.7K - €299.7K</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[24]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">raw_dataframe1</span> <span class="o">=</span> <span class="n">raw_dataframe</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;channeltype&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">raw_dataframe1</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>subscribers</th>
+      <th>videoviews</th>
+      <th>channeltype</th>
+      <th>grade</th>
+      <th>MonthlyEarnings</th>
+      <th>YearlyEarnings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>676</th>
+      <td>Maymo</td>
+      <td>4767878</td>
+      <td>1886810445</td>
+      <td>Animals</td>
+      <td>A</td>
+      <td>€40.9K - €654K</td>
+      <td>€490.5K - €7.8M</td>
+    </tr>
+    <tr>
+      <th>454</th>
+      <td>Brave Wilderness</td>
+      <td>14124524</td>
+      <td>2565662561</td>
+      <td>Animals</td>
+      <td>B+</td>
+      <td>€6.2K - €99.8K</td>
+      <td>€74.8K - €1.2M</td>
+    </tr>
+    <tr>
+      <th>726</th>
+      <td>MotorTrend Channel</td>
+      <td>6154525</td>
+      <td>1784805597</td>
+      <td>Autos</td>
+      <td>B</td>
+      <td>€2.7K - €43.3K</td>
+      <td>€32.5K - €519.7K</td>
+    </tr>
+    <tr>
+      <th>858</th>
+      <td>Dekja</td>
+      <td>3447845</td>
+      <td>1561150334</td>
+      <td>Autos</td>
+      <td>A-</td>
+      <td>€11.8K - €189.3K</td>
+      <td>€142K - €2.3M</td>
+    </tr>
+    <tr>
+      <th>159</th>
+      <td>shane</td>
+      <td>21245806</td>
+      <td>4860084042</td>
+      <td>Comedy</td>
+      <td>A</td>
+      <td>€22.3K - €356.9K</td>
+      <td>€267.7K - €4.3M</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>875</th>
+      <td>Kids smile TV</td>
+      <td>4132102</td>
+      <td>1534513154</td>
+      <td>NaN</td>
+      <td>A</td>
+      <td>€23.4K - €373.8K</td>
+      <td>€280.3K - €4.5M</td>
+    </tr>
+    <tr>
+      <th>905</th>
+      <td>Tekashi 6ix9ine</td>
+      <td>7415806</td>
+      <td>1485815538</td>
+      <td>NaN</td>
+      <td>A-</td>
+      <td>€17.8K - €285.1K</td>
+      <td>€213.8K - €3.4M</td>
+    </tr>
+    <tr>
+      <th>940</th>
+      <td>???? ??????? ?? 5…</td>
+      <td>6177407</td>
+      <td>1441681409</td>
+      <td>NaN</td>
+      <td>A</td>
+      <td>€24.1K - €385.7K</td>
+      <td>€289.3K - €4.6M</td>
+    </tr>
+    <tr>
+      <th>972</th>
+      <td>IDEAS EN 5 MINUTOS</td>
+      <td>8546263</td>
+      <td>1396401214</td>
+      <td>NaN</td>
+      <td>A</td>
+      <td>€18.5K - €296.2K</td>
+      <td>€222.1K - €3.6M</td>
+    </tr>
+    <tr>
+      <th>985</th>
+      <td>Kiddiestv Hindi</td>
+      <td>4055377</td>
+      <td>1378160809</td>
+      <td>NaN</td>
+      <td>A</td>
+      <td>€29.1K - €465.4K</td>
+      <td>€349K - €5.6M</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows &#215; 7 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[23]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">raw_dataframe1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>subscribers</th>
+      <th>videoviews</th>
+      <th>channeltype</th>
+      <th>grade</th>
+      <th>MonthlyEarnings</th>
+      <th>YearlyEarnings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>676</th>
+      <td>Maymo</td>
+      <td>4767878</td>
+      <td>1886810445</td>
+      <td>Animals</td>
+      <td>A</td>
+      <td>€40.9K - €654K</td>
+      <td>€490.5K - €7.8M</td>
+    </tr>
+    <tr>
+      <th>454</th>
+      <td>Brave Wilderness</td>
+      <td>14124524</td>
+      <td>2565662561</td>
+      <td>Animals</td>
+      <td>B+</td>
+      <td>€6.2K - €99.8K</td>
+      <td>€74.8K - €1.2M</td>
+    </tr>
+    <tr>
+      <th>726</th>
+      <td>MotorTrend Channel</td>
+      <td>6154525</td>
+      <td>1784805597</td>
+      <td>Autos</td>
+      <td>B</td>
+      <td>€2.7K - €43.3K</td>
+      <td>€32.5K - €519.7K</td>
+    </tr>
+    <tr>
+      <th>858</th>
+      <td>Dekja</td>
+      <td>3447845</td>
+      <td>1561150334</td>
+      <td>Autos</td>
+      <td>A-</td>
+      <td>€11.8K - €189.3K</td>
+      <td>€142K - €2.3M</td>
+    </tr>
+    <tr>
+      <th>159</th>
+      <td>shane</td>
+      <td>21245806</td>
+      <td>4860084042</td>
+      <td>Comedy</td>
+      <td>A</td>
+      <td>€22.3K - €356.9K</td>
+      <td>€267.7K - €4.3M</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[27]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#counting the number of categories</span>
+<span class="n">raw_dataframe1</span><span class="o">.</span><span class="n">channeltype</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>Music            323
+Entertainment    306
+Games             97
+Film              61
+People            49
+Comedy            39
+Education         34
+Howto             22
+News              18
+Sports            15
+Tech              11
+Animals            2
+Autos              2
+Nonprofit          1
+Travel             1
+Name: channeltype, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[&#160;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<script type="module" src="https://s.brightspace.com/lib/bsi/20.22.7-212/unbundled/mathjax.js"></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', function() {
+					if (document.querySelector('math') || /\$\$|\\\(|\\\[|\\begin{|\\ref{|\\eqref{/.test(document.body.innerHTML)) {
+						document.querySelectorAll('mspace[linebreak="newline"]').forEach(elm => {
+							elm.setAttribute('style', 'display: block; height: 0.5rem;');
+						});
+
+						window.D2L.MathJax.loadMathJax({
+							'outputScale': 1.3,
+							'renderLatex': false
+						});
+					}
+				});</script></body></html>
